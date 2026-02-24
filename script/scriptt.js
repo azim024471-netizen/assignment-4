@@ -45,9 +45,11 @@ function clickedBtn(clickedBtnId) {
 
     const mainContainer = document.querySelector('main');
 
+    
     // main div part
 
     mainContainer.addEventListener('click', function(event){
+
      console.log(event.target.classList.contains('interview-btn'))
         if(event.target.classList.contains('interview-btn')){
                 

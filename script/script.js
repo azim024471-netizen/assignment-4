@@ -90,17 +90,13 @@ function clickedBtn(clickedBtnId) {
     }
 }
 
-
-
-
-
-
 const mainContainer = document.querySelector('main');
 
 const interviewBtn = document.querySelectorAll('.interview-btn');
 const rejectedBtn = document.querySelectorAll('.rejected-btn');
 const statusVar = document.querySelectorAll('.status-var');
 
+// main container click
 mainContainer.addEventListener('click', function(event){ 
   const card = event.target.closest('.card');
 
@@ -156,6 +152,36 @@ mainContainer.addEventListener('click', function(event){
     
 })
 
-// job alada card a show part
+ 
+// rendering function
+
+function renderRejected() {
+    filterSection.innerHTML = '';
+
+    for (let rejected of rejectedList) {
+        let div = document.createElement('div');
+        div.className = 'card space-y-5 bg-white p-6';
+        div.innerHTML = `
+             <div class="job-tittle flex justify-between">
+        <div>
+            <h5 class="company-name text-[18px] font-semibold">CodeCrafters</h5>
+            <p class="position text-gray-500">Software Engineer</p>
+        </div>
+        <div><i class="trash fa-regular fa-trash-can"></i></div>
+    </div>
+    <p class="job-info text-gray-500">Boston, MA • Full-time • $125,000 - $160,000</p>
+    <div id="status-bar" class="space-y-2">
+        <button class="status-var font-semibold bg-gray-100 py-2 px-3 rounded-sm">Not Applied</button>
+        <p class="description text-[#323B49]">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+    </div>
+    <div class="flex gap-3">
+        <button class="interview-btn font-semibold text-green-500 py-2 px-3 border border-green-500 rounded-sm">interview</button>
+        <button class="rejected-btn font-semibold text-red-500 py-2 px-3 border border-red-500 rounded-sm">Rejected</button>
+    </div>
+        `;
+        
+        filterSection.appendChild(div);
+    }
+}
 
 
