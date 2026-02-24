@@ -92,23 +92,23 @@ function clickedBtn(clickedBtnId) {
             div.className = 'card space-y-5 bg-white p-6'
             div.innerHTML = `
              <div class="job-tittle flex justify-between">
-                           <div ><h5 class="company-name text-[18px] font-semibold">Mobile First </h5>
-                             <p class=" position text-gray-500">React Native Developer</p></div>
+                           <div ><h5 class="company-name text-[18px] font-semibold">${interview.companyName} </h5>
+                             <p class=" position text-gray-500">${interview.position}</p></div>
                            <div><i class="trash fa-regular fa-trash-can"></i></div>
                     </div>
 
-                    <p class="job-info text-gray-500 ">Seattle, WA • Full-time •$140,000 - $190,000</p>
+                    <p class="job-info text-gray-500 ">${interview.jobInfo}</p>
 
                     <div id="status-bar" class="space-y-2">
                          <button id="status" class="status-var font-semibold bg-gray-100 py-2 px-3  rounded-sm">Not Applied</button>
-                         <p class="description text-[#323B49] ">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+                         <p class="description text-[#323B49] ">${interview.description}</p>
                     </div>
                     <div class="flex gap-3">
-                        
                         <button   class="interview-btn font-semibold text-green-500 py-2 px-3 border border-green-500 rounded-sm">interview</button>
                         <button   class="rejected-btn font-semibold text-red-500 py-2 px-3 border border-red-500 rounded-sm">Rejected</button>
                     </div>
             `
+        
 
             filterSection.appendChild(div)
         }
