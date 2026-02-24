@@ -91,9 +91,9 @@ const statusVar = document.querySelectorAll('.status-var');
 
          mainContainer.addEventListener('click', function(event){ 
   const card = event.target.closest('.card');
+  
 
     if(event.target.classList.contains('interview-btn')){
-
   const parentNode = event.target.parentNode.parentNode;
          const companyName = parentNode.querySelector('.company-name').innerText;
   const position = parentNode.querySelector('.position').innerText;
