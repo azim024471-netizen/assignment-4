@@ -40,9 +40,48 @@ its return a static node list
 exmple:document.querySelectorAll(".card")
 
 
+  <!-- Ans to the que. no. :2 -->
+   How do I create and insert a new element into the DOM :
+
+   At first I will create an element by document.createElement("element name") and the into a variable. 
+   After that I will add  content inside the element or add some of suitable attribute. 
+   There are many kinds of insert methods in javascript. like appendChild(), append(), prepend()
+   After all I will select element where I want to insert new element  by appendChild()   
 
 
 
 
 
+ <!-- Ans to que no : 3 -->
+ 
+ Event Bubbling : Event bubbling  is a mathod of javascript. where a event starts from the target element  and  
+ bubbles up to it parent element one by one and rech the top of the dom.
 
+ How its work : At first event starts on target element. Than it move on its parents element after its move step by step
+ on parents parent  element and upto the document. we can stop the event bubbling on a targeted element byevent .stopPropagation(); 
+
+
+
+<!-- Ans to the que. no : 4 -->
+
+Event Delegation:
+
+ In JavaScript  Event Delegation is a exiting tecnique. Where I do not need to add events listner in one by one, just need to add 
+ event listner in the parent elemt. Its work like some of event bubbling  
+
+Importance :
+
+By this adding only one event listner in one element  we can control  all the the
+the child elements events. 
+Its improve performance and halpes to handel dynamic element.
+
+
+<!-- Ans to the que. no : 5 -->
+
+Difference between preventDefault() and stopPropagation() methods:
+
+There are many difference between preventDefault() and stopPropagation() methods some of like ,
+preventDefault() stops the browser’s default behavior on the other hand topPropagation() stops the event from bubbling up to parent elements.
+preventDefault() prevents actions like link redirection, form submission, checkbox default toggle and stopPropagation() prevents parent
+event listeners from being triggered.
+preventDefault() does not stop propagation and stopPropagation() does not stop default browser behavior.
