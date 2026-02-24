@@ -54,13 +54,16 @@ function clickedBtn(clickedBtnId) {
           const parenNode = event.target.parentNode.parentNode;
          const companyName = parenNode.querySelector('.company-name').innerText;
          const  position = parenNode.querySelector('.position').innerText;
+
          const jobInfo = parenNode.querySelector('.job-info').innerText;
          const description =parenNode.querySelector('.description').innerText;
           const status = parenNode.querySelector('.status-var').innerText;
+          const trash = document.querySelector(".trash");
          console.log(companyName,position, jobInfo, description, status)
  const cardifo = {
     companyName,
     position,
+    trash,
     jobInfo,
     description,
     status
