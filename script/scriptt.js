@@ -7,28 +7,29 @@ let declineJobNumber = document.getElementById('decline-job-num');
 
 const filterSection = document.getElementById('filtered-section');
 
-console.log(totalJobNumber , pendingJobNumber , declineJobNumber);
 
 let allJobs = document.getElementById('card-container');
-console.log(allJobs.children);
 
+const allJobsBtn = document.getElementById('all-jobs-btn');
+const allInterviewBtn = document.getElementById('all-int-btn');
+const allRejectBtn = document.getElementById('all-rej-btn');
+ 
 function calculateJob(){
 totalJobNumber.innerText = allJobs.children.length;
 pendingJobNumber.innerText = interviewList.length;
  declineJobNumber.innerText = rejectedList.length;
 
 }
+
+const cardContainer = document.getElementById('card-container');
+const noJobs = document.getElementById('no-jobs')
+let currentFilter = 'all';
+
 calculateJob();
 
-const allJobsBtn = document.getElementById('all-jobs-btn');
-const allInterviewBtn = document.getElementById('all-int-btn');
-const allRejectBtn = document.getElementById('all-rej-btn');
  
-// const filterSection = document.getElementById('filtered-section');
-const cardContainer = document.getElementById('card-container');
-
-const noJobs = document.getElementById('no-jobs')
 //  toggle  main btn  
+
 function clickedBtn(clickedBtnId) {
     // -------- Active Style Toggle --------
     allJobsBtn.classList.remove('bg-[#3B82F6]', 'text-white');
@@ -41,12 +42,47 @@ function clickedBtn(clickedBtnId) {
 
     const selected = document.getElementById(clickedBtnId);
     selected.classList.remove('bg-[#FFFFFF]', 'text-gray-500');
-    selected.classList.add('bg-[#3B82F6]', 'text-white'); }
+    selected.classList.add('bg-[#3B82F6]', 'text-white'); 
 
-    const mainContainer = document.querySelector('main');
+     if (clickedBtnId === 'all-jobs-btn') {
+        currentFilter = 'all';
+       
+        cardContainer.classList.remove('hidden');
+        filterSection.classList.add('hidden');
+        noJobs.classList.add('hidden');
+       
+    }
 
-    
+    if (clickedBtnId === 'all-int-btn') {
+        currentFilter = 'interview';
+        
+        cardContainer.classList.add('hidden');
+        filterSection.classList.remove('hidden');
+        noJobs.classList.add('hidden');
+        renderInterview();
+        if (interviewList.length === 0) {
+            noJobs.classList.remove('hidden');
+        }
+    }
+
+    if (clickedBtnId === 'all-rej-btn') {
+        currentFilter = 'rejected';
+
+        cardContainer.classList.add('hidden');
+        filterSection.classList.remove('hidden');
+        noJobs.classList.add('hidden');
+
+        renderRejected();
+        if (rejectedList.length === 0) {
+            noJobs.classList.remove('hidden');
+        }
+    }
+
+}
+
+
     // main div part
+    const mainContainer = document.querySelector('main');
 
     mainContainer.addEventListener('click', function(event){
 
@@ -84,6 +120,8 @@ function clickedBtn(clickedBtnId) {
     })
 
 
+
+    
     function renderInterview(){
         filterSection.innerHTML = '';
         for (let interview of interviewList) { 
@@ -113,3 +151,9 @@ function clickedBtn(clickedBtnId) {
             filterSection.appendChild(div)
         }
     }
+
+
+
+    // trashbtn
+
+    
