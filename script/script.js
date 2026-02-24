@@ -1,16 +1,15 @@
-console.log('connected')
+// console.log('connected')
 // list
 let interviewList = [];
 let rejectedList =  [];
 
+// conunting
 let totalJobNumber = document.getElementById('total-job-num');
 let pendingJobNumber = document.getElementById('pending-job-num');
 let declineJobNumber = document.getElementById('decline-job-num');
 
-console.log(totalJobNumber , pendingJobNumber , declineJobNumber);
-
 let allJobs = document.getElementById('card-container');
-console.log(allJobs.children);
+
 
 function calculateJob(){
 totalJobNumber.innerText = allJobs.children.length;
@@ -194,8 +193,39 @@ if (statusBtn) {
     
 })
 
- 
+
 // rendering function
+
+function renderInterview() {
+    filterSection.innerHTML = '';
+
+    for (let interview of interviewList) {
+        let div = document.createElement('div');
+        div.className = 'card space-y-5 bg-white p-6';
+        div.innerHTML = `
+            <div class="job-tittle flex justify-between">
+                <div>
+                    <h5 class="company-name text-[18px] font-semibold">${interview.companyName}</h5>
+                    <p class="position text-gray-500">${interview.position}</p>
+                </div>
+                <div><i class="trash fa-regular fa-trash-can"></i></div>
+            </div>
+            <p class="job-info text-gray-500">${interview.jobInfo}</p>
+            <div class="space-y-2">
+                <button class="status-var font-semibold bg-green-100 text-green-600 py-2 px-3 rounded-sm">INTERVIEW</button>
+                <p class="description text-[#323B49]">${interview.description}</p>
+            </div>
+           <div class="flex gap-3">
+                        <button   class="interview-btn font-semibold text-green-500 py-2 px-3 border border-green-500 rounded-sm">interview</button>
+                        <button   class="rejected-btn font-semibold text-red-500 py-2 px-3 border border-red-500 rounded-sm">Rejected</button>
+                    </div>
+        `;
+
+        filterSection.appendChild(div);
+    }
+}
+
+
 
 function renderRejected() {
     filterSection.innerHTML = '';
@@ -204,26 +234,24 @@ function renderRejected() {
         let div = document.createElement('div');
         div.className = 'card space-y-5 bg-white p-6';
         div.innerHTML = `
-             <div class="job-tittle flex justify-between">
-        <div>
-            <h5 class="company-name text-[18px] font-semibold">CodeCrafters</h5>
-            <p class="position text-gray-500">Software Engineer</p>
-        </div>
-        <div><i class="trash fa-regular fa-trash-can"></i></div>
-    </div>
-    <p class="job-info text-gray-500">Boston, MA • Full-time • $125,000 - $160,000</p>
-    <div id="status-bar" class="space-y-2">
-        <button class="status-var font-semibold bg-gray-100 py-2 px-3 rounded-sm">Not Applied</button>
-        <p class="description text-[#323B49]">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
-    </div>
-    <div class="flex gap-3">
-        <button class="interview-btn font-semibold text-green-500 py-2 px-3 border border-green-500 rounded-sm">interview</button>
-        <button class="rejected-btn font-semibold text-red-500 py-2 px-3 border border-red-500 rounded-sm">Rejected</button>
-    </div>
+            <div class="job-tittle flex justify-between">
+                <div>
+                    <h5 class="company-name text-[18px] font-semibold">${rejected.companyName}</h5>
+                    <p class="position text-gray-500">${rejected.position}</p>
+                </div>
+                <div><i class="trash fa-regular fa-trash-can"></i></div>
+            </div>
+            <p class="job-info text-gray-500">${rejected.jobInfo}</p>
+            <div class="space-y-2">
+                <button class="status-var font-semibold bg-red-100 text-red-600 py-2 px-3 rounded-sm">REJECTED</button>
+                <p class="description text-[#323B49]">${rejected.description}</p>
+            </div>
+           <div class="flex gap-3">
+                        <button   class="interview-btn font-semibold text-green-500 py-2 px-3 border border-green-500 rounded-sm">interview</button>
+                        <button   class="rejected-btn font-semibold text-red-500 py-2 px-3 border border-red-500 rounded-sm">Rejected</button>
+                    </div>
         `;
-        
+    
         filterSection.appendChild(div);
     }
 }
-
-
