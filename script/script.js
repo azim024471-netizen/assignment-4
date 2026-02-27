@@ -10,11 +10,32 @@ let declineJobNumber = document.getElementById('decline-job-num');
 
 let allJobs = document.getElementById('card-container');
 
+let availableJobs = document.getElementById('available');
+console.log(availableJobs)
+
 
 function calculateJob(){
-totalJobNumber.innerText = allJobs.children.length;
-pendingJobNumber.innerText = interviewList.length;
- declineJobNumber.innerText = rejectedList.length;
+
+    const counts ={
+        all : allJobs.children.length,
+        interview :interviewList.length,
+        rejected : rejectedList.length,
+
+    }
+
+totalJobNumber.innerText = counts.all;
+
+pendingJobNumber.innerText = counts.interview;
+ declineJobNumber.innerText = counts.rejected;
+
+ availableJobs.innerText = counts[currentFilter];
+
+//  if (counts[currentFilter] < 1) {
+//     noJobs.classList.remove('hidden');
+// } else {
+//     noJobs.classList.add('hidden');
+// }
+
 
 }
 calculateJob();
@@ -60,6 +81,7 @@ function clickedBtn(clickedBtnId) {
         noJobs.classList.add('hidden');
         
          renderInterview();      
+
         if (interviewList.length === 0) {
             noJobs.classList.remove('hidden');
         }
@@ -80,6 +102,9 @@ if (rejectedList.length === 0) {
             noJobs.classList.remove('hidden');
         }
     }
+
+
+    calculateJob();
 }
 
 const mainContainer = document.querySelector('main');
@@ -108,7 +133,6 @@ const cardInfo = {
         };
         const jobExist = interviewList.find(item => item.companyName == cardInfo.companyName);
          rejectedList = rejectedList.filter(item => item.companyName !== cardInfo.companyName);
-
         const statusBtn  = card.querySelector('.status-var');
         if (statusBtn) {
             statusBtn.innerText = 'INTERVIEW';
@@ -145,6 +169,7 @@ const cardInfo = {
           const jobExist = rejectedList.find(item => item.companyName == cardInfo.companyName);
           interviewList = interviewList.filter(item => item.companyName !== cardInfo.companyName);
 
+
         const statusBtn = card.querySelector('.status-var');
 if (statusBtn) {
             statusBtn.innerText = 'REJECTED';
@@ -180,7 +205,7 @@ if (statusBtn) {
         if (currentFilter === 'rejected') {
             renderRejected();
         }
-
+       
         calculateJob();
     }
 })
