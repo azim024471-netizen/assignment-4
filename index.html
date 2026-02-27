@@ -19,7 +19,7 @@
 </head>
 
 
- <body class="bg-gray-100">
+ <body class="bg-gray-100  min-h-screen">
      
     <!-- header section -->
 
@@ -30,7 +30,7 @@
                 <p class="text-[14px]">Total  </p>
                 <p id="total-job-num" class="text-xl font-bold">0</p>
             </div>
-            <div class="p-4  bg-[#FFFFFF] border-0 rounded-lg">
+            <div class="p-4  bg-[#FFFFFF] border-0  rounded-lg">
                 <p class="text-[14px]">Interview </p>
                 <p id="pending-job-num" class="text-xl font-bold  text-green-500">0</p>
             </div>
@@ -57,9 +57,9 @@
                 <h4 class="mb-5 text-2xl ">Available Jobs</h4>
                 <div class="all-btn flex gap-3 ">
 
-                <button onclick="clickedBtn('all-jobs-btn')" id="all-jobs-btn" class="text-white rounded-sm bg-[#3B82F6] text-[12px] w-20 py-2.5 px-4">All</button> 
-                <button onclick="clickedBtn('all-int-btn')" id="all-int-btn" class="text-[12px] w-20 py-2.5 px-4 rounded-sm bg-[#FFFFFF] border border-gray-100 font-medium text-gray-500">Interview</button>
-                 <button onclick="clickedBtn('all-rej-btn')" id="all-rej-btn" class="text-[12px] w-20 py-2.5 px-4 border border-gray-100 rounded-sm bg-[#FFFFFF] font-medium text-gray-500">Rejected</button>
+                <button onclick="clickedBtn('all-jobs-btn')" id="all-jobs-btn" class="text-white cursor-pointer rounded-sm bg-[#3B82F6] text-[12px] w-20 py-2.5 px-4">All</button> 
+                <button onclick="clickedBtn('all-int-btn')" id="all-int-btn" class="text-[12px] w-20 py-2.5 px-4 cursor-pointer rounded-sm bg-[#FFFFFF] border border-gray-100 font-medium text-gray-500">Interview</button>
+                 <button onclick="clickedBtn('all-rej-btn')" id="all-rej-btn" class="text-[12px] w-20 py-2.5 px-4 border cursor-pointer border-gray-100 rounded-sm bg-[#FFFFFF] font-medium text-gray-500">Rejected</button>
                 </div>
             </div>
             <div class="text-gray-500">
@@ -83,7 +83,7 @@
     </div>
 
 </section>
-
+           <!-- filter section -->
          <section id="filtered-section" class="hidden space-y-5">
 
          </section>
@@ -94,13 +94,13 @@
                  <!-- card -->
 
 
-           <div class="card space-y-5 bg-white p-6">
+<div class="card space-y-5 bg-white p-6">
     <div class="job-tittle flex justify-between">
         <div>
             <h5 class="company-name text-[18px] font-semibold">TechNova</h5>
             <p class="position text-gray-500">Frontend Developer</p>
         </div>
-        <div><i class="trash fa-regular fa-trash-can"></i></div>
+        <div class=""><i class="trash fa-regular cursor-pointer fa-trash-can"></i></div>
     </div>
     <p class="job-info text-gray-500">New York, NY • Full-time • $110,000 - $140,000</p>
     <div id="status-bar" class="space-y-2">
@@ -108,8 +108,16 @@
         <p class="description text-[#323B49]">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
     </div>
     <div class="flex gap-3">
-        <button class="interview-btn font-semibold text-green-500 py-2 px-3 border border-green-500 rounded-sm">interview</button>
-        <button class="rejected-btn font-semibold text-red-500 py-2 px-3 border border-red-500 rounded-sm">Rejected</button>
+        <button class="interview-btn font-semibold
+         text-green-500 py-2 px-3 border border-green-500 rounded-sm
+          hover:bg-green-400 hover:text-white 
+           transition duration-200 
+             cursor-pointer">
+                interview
+            </button>
+        <button class="rejected-btn font-semibold text-red-500 py-2 px-3 border border-red-500 rounded-sm hover:bg-red-500 hover:text-white 
+transition duration-200 
+cursor-pointer">Rejected</button>
     </div>
 </div>
 
@@ -128,8 +136,13 @@
         <p class="description text-[#323B49]">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
     </div>
     <div class="flex gap-3">
-        <button class="interview-btn font-semibold text-green-500 py-2 px-3 border border-green-500 rounded-sm">interview</button>
-        <button class="rejected-btn font-semibold text-red-500 py-2 px-3 border border-red-500 rounded-sm">Rejected</button>
+        <button class="interview-btn font-semibold text-green-500 py-2 px-3 border border-green-500 rounded-sm
+         hover:bg-green-400 hover:text-white 
+           transition duration-200 
+             cursor-pointer">interview</button>
+        <button class="rejected-btn font-semibold text-red-500 py-2 px-3 border border-red-500 rounded-sm hover:bg-red-500 hover:text-white 
+transition duration-200 
+cursor-pointer">Rejected</button>
     </div>
 </div>
 
@@ -148,8 +161,12 @@
         <p class="description text-[#323B49]">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
     </div>
     <div class="flex gap-3">
-        <button class="interview-btn font-semibold text-green-500 py-2 px-3 border border-green-500 rounded-sm">interview</button>
-        <button class="rejected-btn font-semibold text-red-500 py-2 px-3 border border-red-500 rounded-sm">Rejected</button>
+        <button class="interview-btn font-semibold text-green-500 py-2 px-3 border border-green-500 rounded-sm hover:bg-green-400 hover:text-white 
+           transition duration-200 
+             cursor-pointer">interview</button>
+        <button class="rejected-btn font-semibold text-red-500 py-2 px-3 border border-red-500 rounded-sm hover:bg-red-500 hover:text-white 
+transition duration-200 
+cursor-pointer">Rejected</button>
     </div>
 </div>
 
@@ -168,8 +185,12 @@
         <p class="description text-[#323B49]">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
     </div>
     <div class="flex gap-3">
-        <button class="interview-btn font-semibold text-green-500 py-2 px-3 border border-green-500 rounded-sm">interview</button>
-        <button class="rejected-btn font-semibold text-red-500 py-2 px-3 border border-red-500 rounded-sm">Rejected</button>
+        <button class="interview-btn font-semibold text-green-500 py-2 px-3 border border-green-500 rounded-sm hover:bg-green-400 hover:text-white 
+           transition duration-200 
+             cursor-pointer">interview</button>
+        <button class="rejected-btn font-semibold text-red-500 py-2 px-3 border border-red-500 rounded-sm hover:bg-red-500 hover:text-white 
+transition duration-200 
+cursor-pointer">Rejected</button>
     </div>
 </div>
 
@@ -188,8 +209,12 @@
         <p class="description text-[#323B49]">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
     </div>
     <div class="flex gap-3">
-        <button class="interview-btn font-semibold text-green-500 py-2 px-3 border border-green-500 rounded-sm">interview</button>
-        <button class="rejected-btn font-semibold text-red-500 py-2 px-3 border border-red-500 rounded-sm">Rejected</button>
+        <button class="interview-btn font-semibold text-green-500 py-2 px-3 border border-green-500 rounded-sm hover:bg-green-400 hover:text-white 
+           transition duration-200 
+             cursor-pointer">interview</button>
+        <button class="rejected-btn font-semibold text-red-500 py-2 px-3 border border-red-500 rounded-sm hover:bg-red-500 hover:text-white 
+transition duration-200 
+cursor-pointer">Rejected</button>
     </div>
 </div>
 
@@ -208,8 +233,12 @@
         <p class="description text-[#323B49]">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
     </div>
     <div class="flex gap-3">
-        <button class="interview-btn font-semibold text-green-500 py-2 px-3 border border-green-500 rounded-sm">interview</button>
-        <button class="rejected-btn font-semibold text-red-500 py-2 px-3 border border-red-500 rounded-sm">Rejected</button>
+        <button class="interview-btn font-semibold text-green-500 py-2 px-3 border border-green-500 rounded-sm hover:bg-green-400 hover:text-white 
+           transition duration-200 
+             cursor-pointer">interview</button>
+        <button class="rejected-btn font-semibold text-red-500 py-2 px-3 border border-red-500 rounded-sm hover:bg-red-500 hover:text-white 
+transition duration-200 
+cursor-pointer">Rejected</button>
     </div>
 </div>
 
@@ -228,8 +257,12 @@
         <p class="description text-[#323B49]">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
     </div>
     <div class="flex gap-3">
-        <button class="interview-btn font-semibold text-green-500 py-2 px-3 border border-green-500 rounded-sm">interview</button>
-        <button class="rejected-btn font-semibold text-red-500 py-2 px-3 border border-red-500 rounded-sm">Rejected</button>
+        <button class="interview-btn font-semibold text-green-500 py-2 px-3 border border-green-500 rounded-sm hover:bg-green-400 hover:text-white 
+           transition duration-200 
+             cursor-pointer">interview</button>
+        <button class="rejected-btn font-semibold text-red-500 py-2 px-3 border border-red-500 rounded-sm hover:bg-red-500 hover:text-white 
+transition duration-200 
+cursor-pointer">Rejected</button>
     </div>
 </div>
 
@@ -248,8 +281,12 @@
         <p class="description text-[#323B49]">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
     </div>
     <div class="flex gap-3">
-        <button class="interview-btn font-semibold text-green-500 py-2 px-3 border border-green-500 rounded-sm">interview</button>
-        <button class="rejected-btn font-semibold text-red-500 py-2 px-3 border border-red-500 rounded-sm">Rejected</button>
+        <button class="interview-btn font-semibold text-green-500 py-2 px-3 border border-green-500 rounded-sm hover:bg-green-400 hover:text-white 
+           transition duration-200 
+             cursor-pointer">interview</button>
+        <button class="rejected-btn font-semibold text-red-500 py-2 px-3 border border-red-500 rounded-sm hover:bg-red-500 hover:text-white 
+transition duration-200 
+cursor-pointer">Rejected</button>
     </div>
 </div>
             

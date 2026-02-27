@@ -84,8 +84,8 @@ if (rejectedList.length === 0) {
 
 const mainContainer = document.querySelector('main');
 
-const interviewBtn = document.querySelectorAll('.interview-btn');
-const rejectedBtn = document.querySelectorAll('.rejected-btn');
+// const interviewBtn = document.querySelectorAll('.interview-btn');
+// const rejectedBtn = document.querySelectorAll('.rejected-btn');
 const statusVar = document.querySelectorAll('.status-var');
 
 
@@ -106,13 +106,10 @@ const cardInfo = {
             jobInfo,
             description
         };
-
         const jobExist = interviewList.find(item => item.companyName == cardInfo.companyName);
          rejectedList = rejectedList.filter(item => item.companyName !== cardInfo.companyName);
 
         const statusBtn  = card.querySelector('.status-var');
-
-    
         if (statusBtn) {
             statusBtn.innerText = 'INTERVIEW';
             statusBtn.classList.remove('bg-gray-100', 'bg-red-100', 'text-red-600');
@@ -147,7 +144,6 @@ const cardInfo = {
           
           const jobExist = rejectedList.find(item => item.companyName == cardInfo.companyName);
           interviewList = interviewList.filter(item => item.companyName !== cardInfo.companyName);
-
 
         const statusBtn = card.querySelector('.status-var');
 if (statusBtn) {
@@ -210,10 +206,18 @@ function renderInterview() {
                 <button class="status-var font-semibold bg-green-100 text-green-600 py-2 px-3 rounded-sm">INTERVIEW</button>
                 <p class="description text-[#323B49]">${interview.description}</p>
             </div>
-           <div class="flex gap-3">
-                        <button   class="interview-btn font-semibold text-green-500 py-2 px-3 border border-green-500 rounded-sm">interview</button>
-                        <button   class="rejected-btn font-semibold text-red-500 py-2 px-3 border border-red-500 rounded-sm">Rejected</button>
-                    </div>
+            <div class="flex gap-3">
+        <button class="interview-btn font-semibold
+         text-green-500 py-2 px-3 border border-green-500 rounded-sm
+          hover:bg-green-400 hover:text-white 
+           transition duration-200 
+             cursor-pointer">
+                interview
+            </button>
+        <button class="rejected-btn font-semibold text-red-500 py-2 px-3 border border-red-500 rounded-sm hover:bg-red-500 hover:text-white 
+transition duration-200 
+cursor-pointer">Rejected</button>
+    </div>
         `;
 
         filterSection.appendChild(div);
@@ -240,9 +244,17 @@ function renderRejected() {
                 <p class="description text-[#323B49]">${rejected.description}</p>
             </div>
            <div class="flex gap-3">
-                        <button   class="interview-btn font-semibold text-green-500 py-2 px-3 border border-green-500 rounded-sm">interview</button>
-                        <button   class="rejected-btn font-semibold text-red-500 py-2 px-3 border border-red-500 rounded-sm">Rejected</button>
-                    </div>
+        <button class="interview-btn font-semibold
+         text-green-500 py-2 px-3 border border-green-500 rounded-sm
+          hover:bg-green-400 hover:text-white 
+           transition duration-200 
+             cursor-pointer">
+                interview
+            </button>
+        <button class="rejected-btn font-semibold text-red-500 py-2 px-3 border border-red-500 rounded-sm hover:bg-red-500 hover:text-white 
+transition duration-200 
+cursor-pointer">Rejected</button>
+    </div>
         `;
     
         filterSection.appendChild(div);
