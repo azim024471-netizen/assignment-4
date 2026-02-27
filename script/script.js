@@ -1,4 +1,4 @@
-// console.log('connected')
+
 let interviewList = [];
 let rejectedList =  [];
 
@@ -13,33 +13,6 @@ let allJobs = document.getElementById('card-container');
 let availableJobs = document.getElementById('available');
 console.log(availableJobs)
 
-
-function calculateJob(){
-
-    const counts ={
-        all : allJobs.children.length,
-        interview :interviewList.length,
-        rejected : rejectedList.length,
-
-    }
-
-totalJobNumber.innerText = counts.all;
-
-pendingJobNumber.innerText = counts.interview;
- declineJobNumber.innerText = counts.rejected;
-
- availableJobs.innerText = counts[currentFilter];
-
-//  if (counts[currentFilter] < 1) {
-//     noJobs.classList.remove('hidden');
-// } else {
-//     noJobs.classList.add('hidden');
-// }
-
-
-}
-calculateJob();
-
 const allJobsBtn = document.getElementById('all-jobs-btn');
 const allInterviewBtn = document.getElementById('all-int-btn');
 const allRejectBtn = document.getElementById('all-rej-btn');
@@ -49,6 +22,28 @@ const cardContainer = document.getElementById('card-container');
 
 const noJobs = document.getElementById('no-jobs')
 
+
+function calculateJob(){
+
+    const counts ={
+        all : allJobs.children.length,
+        interview :interviewList.length,
+        rejected : rejectedList.length,
+    }
+totalJobNumber.innerText = counts.all;
+
+pendingJobNumber.innerText = counts.interview;
+ declineJobNumber.innerText = counts.rejected;
+
+ availableJobs.innerText = counts[currentFilter];
+
+ if (counts[currentFilter] < 1) {
+    noJobs.classList.remove('hidden');
+} else {
+    noJobs.classList.add('hidden');
+}
+}
+calculateJob();
 
 function clickedBtn(clickedBtnId) {
   
@@ -82,11 +77,7 @@ function clickedBtn(clickedBtnId) {
         
          renderInterview();      
 
-        if (interviewList.length === 0) {
-            noJobs.classList.remove('hidden');
-        }
     }
-
 
 if (clickedBtnId === 'all-rej-btn') {
 
@@ -98,19 +89,13 @@ if (clickedBtnId === 'all-rej-btn') {
 
     renderRejected();           
 
-if (rejectedList.length === 0) {
-            noJobs.classList.remove('hidden');
-        }
     }
-
 
     calculateJob();
 }
 
 const mainContainer = document.querySelector('main');
 
-// const interviewBtn = document.querySelectorAll('.interview-btn');
-// const rejectedBtn = document.querySelectorAll('.rejected-btn');
 const statusVar = document.querySelectorAll('.status-var');
 
 
@@ -190,7 +175,6 @@ if (statusBtn) {
 
         calculateJob();   
     }
-
     if(event.target.classList.contains('trash')){
         const card = event.target.closest('.card');
         const companyName = card.querySelector('.company-name').innerText;
